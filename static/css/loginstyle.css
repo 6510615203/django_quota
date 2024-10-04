@@ -1,6 +1,35 @@
-body {
-    background-color: antiquewhite;
-    color: blue;
+body,
+html {
+    height: 100%;
+
+    /* ระยะห่างระหว่างกรอบ */
+    margin: 0;
+
+    display: flex;
+
+    /* จัดกลางแนวนอน */
+    justify-content: center;
+
+    /* จัดกลางแนวตั้ง */
+    align-items: center;
+
+    background: linear-gradient(to right, #fff2e1, #ffddb2);
+    /*background-image: url('django_quota/static/loginbg.jpg');*/
+}
+
+.container {
+    /* จัดข้อความให้อยู่ตรงกลาง */
+    text-align: center;
+}
+
+h1 {
+    font-size: 30px;
+    font-weight: bold;
+    color: black;
+}
+
+p {
     font-size: 20px;
     font-weight: bold;
+    color: black;
 }
