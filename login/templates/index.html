@@ -31,6 +31,8 @@
         <div class="login-container">
             <h2>เข้าสู่ระบบ</h2>
             <form action="#" method="post">
+                {% csrf_token %}
+
                 <div class="input-group">
                     <label for="username">Username</label>
                     <input type="text" id="username" name="username" required>
