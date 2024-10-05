@@ -3,6 +3,7 @@ from login import views
 
 urlpatterns = [
     path("",views.index),
-    path("about",views.about),
-    path("form",views.form)
+    path("quota",views.quota),
+    path("search",views.search),
+    path("result",views.result)
 ]

@@ -6,8 +6,11 @@ from django.http import HttpResponse
 def index(request):
     return render(request,"index.html")
 
-def about(request):
-    return HttpResponse("Hello mommy jaemin")
+def quota(request):
+    return render(request,"quota.html")
 
-def form(request):
-    return HttpResponse("Hello mommy renjun")
+def search(request):
+    return HttpResponse("Search")
+
+def result(request):
+    return HttpResponse("Result")

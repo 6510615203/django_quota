@@ -19,5 +19,5 @@ from django.urls import path,include
 
 urlpatterns = [
     path("admin/", admin.site.urls),
-    path("",include("login.urls"))
+    path("",include("login.urls")) #path หน้าแรก (defult) เรียกใช้ login.urls
 ]
