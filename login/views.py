@@ -5,9 +5,3 @@ from django.http import HttpResponse
 
 def index(request):
     return render(request,"index.html")
-
-def about(request):
-    return HttpResponse("Hello mommy jaemin")
-
-def form(request):
-    return HttpResponse("Hello mommy renjun")
