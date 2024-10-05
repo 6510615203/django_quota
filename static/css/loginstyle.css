@@ -14,7 +14,7 @@ html {
     align-items: center;
 
     /*background: linear-gradient(to right, #fff2e1, #ffddb2);*/
-    background-image: url('https://github.com/6510615203/django_quota/blob/main/static/css/loginbg.jpg');
+    background-image: url('https://github.com/6510615203/django_quota/blob/main/static/css/loginbg.jpg')
 }
 
 .container {
@@ -30,6 +30,6 @@ h1 {
 
 p {
     font-size: 20px;
-    /*font-weight: bold;*/
+    font-weight: bold;
     color: black;
 }
