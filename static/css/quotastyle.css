@@ -1,0 +1,66 @@
+body,
+html {
+    height: 100%;
+
+    /* ระยะห่างระหว่างกรอบ */
+    margin: 0;
+
+    padding: 0;
+
+    display: flex;
+
+    /* จัดกลางแนวนอน */
+    justify-content: left;
+
+    /* จัดกลางแนวตั้ง */
+    align-items:top;
+
+    background-color: #fff2e1;
+    /*background-image: url('/workspaces/django_quota/static/css/loginbg.jpg')*/
+}
+
+.background-div {
+    width: 100%;
+    height: 90px;
+    background-image: url('TUlogo.jpg'); /* ใส่ลิงก์ของรูปภาพ */
+    background-size: cover; /* ทำให้ภาพขยายเต็มพื้นที่ของ div */
+    background-position: center; /* จัดตำแหน่งรูปภาพให้อยู่ตรงกลาง */
+    margin-left: 0;
+}
+
+.square-top {
+    width: 1000%;
+    height: 0%;
+    background-color: #FFDDB2;
+    display: flex;
+    justify-content: left;
+    padding-left: 120px;
+    padding-top: 90px;
+    align-items: center;
+    color: black;
+    font-size: 20px;
+    font-family: Arial, sans-serif;
+}
+
+.square-left {
+    width: 120px;
+    height: 100%;
+    background-color: #FFDDB2;
+    position: fixed;
+    top: 50%;
+    left: 0;
+    transform: translateY(-50%);
+}
+
+.container {
+    /* จัดข้อความให้อยู่ตรงกลาง */
+    text-align: center;
+    padding: 0px;
+    margin-top: 0px;
+}
+
+h1 {
+    font-size: 20px;
+    font-weight: bold;
+    color: black;
+}

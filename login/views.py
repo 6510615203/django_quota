@@ -5,3 +5,12 @@ from django.http import HttpResponse
 
 def index(request):
     return render(request,"index.html")
+
+def quota(request):
+    return render(request,"quota.html")
+
+def search(request):
+    return HttpResponse("Search")
+
+def result(request):
+    return HttpResponse("Result")
