@@ -4,18 +4,35 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Login Page</title>
     {% load static %}
     <link rel="stylesheet" type="text/css" href="{% static 'css/loginstyle.css' %}">
 </head>
 
 <body>
+    
     <div class="container">
-        <p><img src="TUlogo.png" width="150"
+        <div class="square-top"></div>        
+        <p><img src='/workspaces/django_quota/TUlogo.png' width="150"
             height="150""></p>
-        <h1>ระบบขอโควต้ารายวิชา</h1>
-        
-        <p>เข้าสู่ระบบ</p>
+        <h1>ระบบขอโควต้ารายวิชา</h1>     
+        <div class="login-container">
+            <h2>เข้าสู่ระบบ</h2>
+            <form action="#" method="post">
+                <div class="input-group">
+                    <label for="username">Username</label>
+                    <input type="text" id="username" name="username" required>
+                </div>
+                <div class="input-group">
+                    <label for="password">Password</label>
+                    <input type="password" id="password" name="password" required>
+                </div>
+                <div class="input-group">
+                    <button type="submit">Login</button>
+                </div>
+            </form>  
+        </div>
+        <div class="square-bottom"></div>
     </div>
 </body>
 
