@@ -20,12 +20,12 @@ html {
 }
 
 .background-div {
-    width: 100%;
-    height: 500px;
+    width: 50%;
+    height: 150px;
     background-image: url('TUlogo.jpg'); /* ใส่ลิงก์ของรูปภาพ */
     background-size: cover; /* ทำให้ภาพขยายเต็มพื้นที่ของ div */
     background-position: center; /* จัดตำแหน่งรูปภาพให้อยู่ตรงกลาง */
-    background-repeat: no-repeat; /* ไม่ให้ภาพซ้ำ */
+    margin-left: 25%;
 }
 
 .square-top {
