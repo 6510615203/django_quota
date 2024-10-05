@@ -1,17 +1,52 @@
 {% extends "base.html" %}
 {% load static %}
 {% block title %}
-    <title>ค้นหารายวิชา</title>
+<title>ค้นหารายวิชา</title>
 {% endblock %}
 
 {% block style %}
-    <link rel="stylesheet" type="text/css" href="{% static 'css/searchstyle.css' %}">
+<link rel="stylesheet" type="text/css" href="{% static 'css/searchstyle.css' %}">
 {% endblock %}
 
 {% block content %}
-<div class="searchcontainer">
-    <div>
-        <h3>ค้นหารายวิชา</h3>
-    </div>
+<div class="search-container">
+
+    <form action="#" method="post">
+        {% csrf_token %}
+        <div class="input-group">
+            <input type="text" name="q">
+            <button type="submit">search</button>
+        </div>
+    </form>
 </div>
+
+{% if subject_list %}
+<div class="searchcontainer">
+    <table>
+        <thead>
+            <tr>
+                <th>รหัสวิชา</th>
+                <th>ชื่อวิชา</th>
+                <th>ภาคการศึกษา</th>
+                <th>ปีการศึกษา</th>
+                <th>จำนวนที่นั่ง</th>
+                <th>สถานะ</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for subject in subject_list %}
+            <tr>
+                <td>{{subject.code}}</td>
+                <td>{{subject.name}}</td>
+                <td>{{subject.semester}}</td>
+                <td>{{subject.year}}</td>
+                <td>{{subject.seats}}</td>
+                <td>{{subject.status}}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+
+    </table>
+</div>
+{% endif %}
 {% endblock %}

@@ -3,6 +3,7 @@ from django.http import HttpResponse
 from django.http import HttpResponseRedirect
 from django.urls import reverse
 from django.contrib import messages
+from login.models import Student, Subject
 from django.contrib.auth import authenticate, login, logout
 
 # Create your views here.
@@ -14,6 +15,8 @@ def index(request):
         user = authenticate(request, username=username, password=password)
         if user is not None:
             login(request, user)
+            if username == "admin":
+                return HttpResponseRedirect("admin")
             return HttpResponseRedirect("quota")
         else:
             return render(request, "index.html", {
@@ -24,10 +27,12 @@ def index(request):
 
 
 def quota(request):
-    return render(request,"quota.html")
+    subject_list = Subject.objects.all()
+    return render(request,"quota.html",{"subject_list":subject_list})
 
 def search(request):
-    return render(request,"search.html")
+    subject_list = Subject.objects.all()
+    return render(request,"search.html",{"subject_list":subject_list})
 
 def result(request):
     return render(request,"result.html")

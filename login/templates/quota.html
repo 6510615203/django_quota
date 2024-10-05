@@ -1,39 +1,39 @@
 {% extends "base.html" %}
 {% load static %}
 {% block title %}
-    <title>ขอโควต้า</title>
+<title>ขอโควต้า</title>
 {% endblock %}
 
 {% block style %}
-    <link rel="stylesheet" type="text/css" href="{% static 'css/quotastyle.css' %}">
+<link rel="stylesheet" type="text/css" href="{% static 'css/quotastyle.css' %}">
 {% endblock %}
 
 {% block content %}
 <div class="quotacontainer">
-    <div>
-        <h2>ขอโควต้ารายวิชา</h2>
-        <div class="grid-table">
-            <div class="grid-item grid-header">รหัสวิชา</div>
-            <div class="grid-item grid-header">ชื่อวิชา</div>
-            <div class="grid-item grid-header">ภาคการศึกษา</div>
-            <div class="grid-item grid-header">ปีการศึกษา</div>
-            <div class="grid-item grid-header">จำนวนที่รับ</div>
-            <div class="grid-item grid-header">สถานะ</div>
-            
-            <div class="grid-item">CN331</div>
-            <div class="grid-item">วิศวกรรมซอฟต์แวร์</div>
-            <div class="grid-item">2567</div>
-            <div class="grid-item">1</div>
-            <div class="grid-item">40</div>
-            <div class="grid-item">เปิด</div>
-            
-            <div class="grid-item">CN361</div>
-            <div class="grid-item">การออกแบบระบบไมโครโปรเซสเซอร์</div>
-            <div class="grid-item">2567</div>
-            <div class="grid-item">1</div>
-            <div class="grid-item">50</div>
-            <div class="grid-item">ปิด</div>
-        </div>
-    </div>
-</div>    
+    <table>
+        <thead>
+            <tr>
+                <th>รหัสวิชา</th>
+                <th>ชื่อวิชา</th>
+                <th>ภาคการศึกษา</th>
+                <th>ปีการศึกษา</th>
+                <th>จำนวนที่นั่ง</th>
+                <th>สถานะ</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for subject in subject_list %}
+            <tr>
+                <td>{{subject.code}}</td>
+                <td>{{subject.name}}</td>
+                <td>{{subject.semester}}</td>
+                <td>{{subject.year}}</td>
+                <td>{{subject.seats}}</td>
+                <td>{{subject.status}}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+
+    </table>
+</div>
 {% endblock %}
