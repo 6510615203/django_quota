@@ -1,0 +1,10 @@
+.resultcontainer {
+    display: flex;
+    justify-content: center; /* จัดตรงกลางในแนวนอน */
+    align-items: center;
+}
+
+h4 {
+    font-size: 20px;
+    color: black;
+}

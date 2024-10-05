@@ -1,0 +1,10 @@
+.searchcontainer {
+    display: flex;
+    justify-content: center; /* จัดตรงกลางในแนวนอน */
+    align-items: center;
+}
+
+h3 {
+    font-size: 20px;
+    color: black;
+}

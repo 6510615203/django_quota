@@ -4,11 +4,35 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    {% load static %}
+
+    {% block title %}
+    {% endblock %}
+
+    <link rel="stylesheet" type="text/css" href="{% static 'css/basestyle.css' %}">
+
+    {% block style %}
+    {% endblock %}
 </head>
 
 <body>
+    <div class="container">
+        <div class="square-top">
+            <h1>ระบบขอโควต้ารายวิชา</h1>
+        </div>
+    </div>
 
+    <div class="square-left">
+        <div class="background-div"></div>
+        <div class="container">
+            <a href="/search" class="custom-button">ค้นหารายวิชา</a></li>
+            <a href="/quota" class="custom-button">ขอโควต้า</a></li>
+            <a href="/result" class="custom-button">ผลการขอโควต้า</a></li>
+            <a href="/" class="custom-button">Logout</a></li>
+        </div>
+    </div>
+    {% block content %}
+    {% endblock %}
 </body>
 
 </html>
