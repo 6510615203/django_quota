@@ -27,7 +27,7 @@ def quota(request):
     return render(request,"quota.html")
 
 def search(request):
-    return HttpResponse("Search")
+    return render(request,"search.html")
 
 def result(request):
-    return HttpResponse("Result")
+    return render(request,"result.html")
