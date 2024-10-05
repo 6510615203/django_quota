@@ -15,19 +15,27 @@ html {
     /* จัดกลางแนวตั้ง */
     align-items: center;
 
-    background-color: #fff2e1;
-    /*background-image: url('/workspaces/django_quota/static/css/loginbg.jpg')*/
+    /*background-color: #fff2e1;*/
+    background-image: url('https://github.com/6510615203/django_quota/blob/main/loginbg.jpg?raw=true');
+    background-repeat: no-repeat;
+    background-position: center center;
+    /*background-size: coverx;*/
 }
+
 
 .background-div {
     width: 50%;
     height: 150px;
-    background-image: url('TUlogo.jpg'); /* ใส่ลิงก์ของรูปภาพ */
-    background-size: cover; /* ทำให้ภาพขยายเต็มพื้นที่ของ div */
-    background-position: center; /* จัดตำแหน่งรูปภาพให้อยู่ตรงกลาง */
+    background-image: url('TUlogo.jpg');
+    /* ใส่ลิงก์ของรูปภาพ */
+    background-size: cover;
+    /* ทำให้ภาพขยายเต็มพื้นที่ของ div */
+    background-position: center;
+    /* จัดตำแหน่งรูปภาพให้อยู่ตรงกลาง */
     margin-left: 25%;
 }
 
+/*
 .square-top {
     width: 100%;
     height: 70px;
@@ -36,7 +44,7 @@ html {
     top: 0;
     left: 0;
     z-index: 1000;
-}
+}*/
 
 .container {
     /* จัดข้อความให้อยู่ตรงกลาง */
@@ -61,7 +69,7 @@ h1 {
 }
 
 h2 {
-    margin-bottom:10px;
+    margin-bottom: 10px;
     font-size: 20px;
     /*font-weight: bold;*/
     color: black;
