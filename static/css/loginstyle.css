@@ -13,8 +13,8 @@ html {
     /* จัดกลางแนวตั้ง */
     align-items: center;
 
-    background: linear-gradient(to right, #fff2e1, #ffddb2);
-    /*ßbackground-image: url('django_quota/static/loginbg.jpg');*/
+    /*background: linear-gradient(to right, #fff2e1, #ffddb2);*/
+    background-image: url('https://github.com/6510615203/django_quota/blob/main/static/css/loginbg.jpg');
 }
 
 .container {
@@ -30,6 +30,6 @@ h1 {
 
 p {
     font-size: 20px;
-    font-weight: bold;
+    /*font-weight: bold;*/
     color: black;
 }
