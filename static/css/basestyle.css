@@ -13,7 +13,7 @@ html {
     justify-content: left;
 
     /* จัดกลางแนวตั้ง */
-    align-items:top;
+    align-items: top;
 
     background-color: #fff2e1;
     /*background-image: url('/workspaces/django_quota/static/css/loginbg.jpg')*/
@@ -22,9 +22,12 @@ html {
 .background-div {
     width: 100%;
     height: 90px;
-    background-image: url('TUlogo.jpg'); /* ใส่ลิงก์ของรูปภาพ */
-    background-size: cover; /* ทำให้ภาพขยายเต็มพื้นที่ของ div */
-    background-position: center; /* จัดตำแหน่งรูปภาพให้อยู่ตรงกลาง */
+    background-image: url('TUlogo.jpg');
+    /* ใส่ลิงก์ของรูปภาพ */
+    background-size: cover;
+    /* ทำให้ภาพขยายเต็มพื้นที่ของ div */
+    background-position: center;
+    /* จัดตำแหน่งรูปภาพให้อยู่ตรงกลาง */
     margin-left: 0;
 }
 
@@ -62,6 +65,7 @@ html {
 
 
 h1 {
+    font-family: "Kanit", sans-serif;
     font-size: 25px;
     font-weight: bold;
     color: black;
