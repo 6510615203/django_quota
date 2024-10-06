@@ -1,10 +1,11 @@
-from django.shortcuts import render
+from django.shortcuts import render, get_object_or_404
 from django.http import HttpResponse
 from django.http import HttpResponseRedirect
 from django.urls import reverse
 from django.contrib import messages
-from login.models import Student, Subject
+from login.models import Student, Subject, Enrollment
 from django.contrib.auth import authenticate, login, logout
+from django.contrib.auth.decorators import login_required
 
 # Create your views here.
 
@@ -28,7 +29,14 @@ def index(request):
 
 def quota(request):
     subject_list = Subject.objects.all()
-    #if request.method == "POST":
+
+    if request.method == "POST":
+        subject = get_object_or_404(Subject, code=(request.POST["code"]))
+        student = get_object_or_404(Student, user=request.user)
+        enrollment = Enrollment(student=student, subject=subject)
+        subject.seats = subject.seats - 1
+        subject.save()
+        enrollment.save()
 
     return render(request,"quota.html",{"subject_list":subject_list})
 

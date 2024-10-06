@@ -77,7 +77,7 @@ WSGI_APPLICATION = "quota_registration.wsgi.application"
 DATABASES = {
     "default": {
         "ENGINE": "django.db.backends.sqlite3",
-        "NAME": "/workspaces/django_quota/db.sqlite3",
+        "NAME": "/django_quota/db.sqlite3",
     }
 }
 

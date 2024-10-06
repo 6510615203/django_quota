@@ -46,6 +46,7 @@
                     <td>
                         <form action="{% url 'quota' %}" method="POST">
                             {% csrf_token %}
+                            <input type="hidden" name="code" value="{{ subject.code }}">
                             <div class="enroll-container">
                                 <button type="submit" class="btn btn-primary">Enroll</button>
                             </div>
