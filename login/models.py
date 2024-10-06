@@ -8,7 +8,7 @@ class Student(models.Model):
     name = models.CharField(max_length=64)
     surname = models.CharField(max_length=64)
     year = models.IntegerField()
-    student_id = models.IntegerField()
+    student_id = models.IntegerField(unique=True)
 
     def __str__(self):
         return f"{self.student_id} : {self.name} {self.surname}"
@@ -21,8 +21,9 @@ class Subject(models.Model):
     seats = models.IntegerField()
     
     class Status(models.TextChoices):
-        AVAILABLE = 'AVAILABLE', 'Available'
-        FULL = 'FULL', 'Full'
+        AVAILABLE = "AVAILABLE", "Available"
+        FULL = "FULL", "Full"
+        REGISTERED = "REGISTERED", "Registered"
 
     status = models.CharField(
         max_length=10,
@@ -40,5 +41,5 @@ class Enrollment(models.Model):
     student = models.ForeignKey(Student, on_delete=models.CASCADE)
     subject = models.ForeignKey(Subject, on_delete=models.CASCADE)
     def __str__(self):
-        return f"{self.student} ลงทะเบียน {self.subject}"
+        return f"{self.student} ขอโควต้าวิชา {self.subject}"
     

@@ -29,14 +29,20 @@ def index(request):
 
 def quota(request):
     subject_list = Subject.objects.all()
+    query = request.POST.get("q")
+    if query:
+        subject_list = subject_list.filter(code__icontains=query) | subject_list.filter(name__icontains=query)
 
     if request.method == "POST":
-        subject = get_object_or_404(Subject, code=(request.POST["code"]))
-        student = get_object_or_404(Student, user=request.user)
-        enrollment = Enrollment(student=student, subject=subject)
-        subject.seats = subject.seats - 1
-        subject.save()
-        enrollment.save()
+        code = request.POST.get("code")
+        if code :
+            subject = get_object_or_404(Subject, code=code)
+            student = get_object_or_404(Student, user=request.user)
+            enrollment = Enrollment(student=student, subject=subject)
+            subject.seats = subject.seats - 1
+            subject.status = "REGISTERED"
+            subject.save()
+            enrollment.save()
 
     return render(request,"quota.html",{"subject_list":subject_list})
 
