@@ -9,42 +9,56 @@
 {% endblock %}
 
 {% block content %}
-<div class="quotacontainer">
-    <table>
-        <thead>
-            <tr>
-                <th>รหัสวิชา</th>
-                <th>ชื่อวิชา</th>
-                <th>ภาคการศึกษา</th>
-                <th>ปีการศึกษา</th>
-                <th>จำนวนที่นั่ง</th>
-                <th>สถานะ</th>
-            </tr>
-        </thead>
-        <tbody>
-            {% for subject in subject_list %}
-            <tr>
-                <td>{{ subject.code }}</td>
-                <td>{{ subject.name }}</td>
-                <td>{{ subject.semester }}</td>
-                <td>{{ subject.year }}</td>
-                <td>{{ subject.seats }}</td>
-                {% if subject.status == "AVAILABLE" %}
-                <td>
-                    <form action="{% url 'quota' %}" method="POST">
-                        {% csrf_token %}
-                        <div class="input-group">
-                            <button type="submit" class="btn btn-primary">{{ subject.status }}</button>
-                        </div>
-                    </form>
-                </td>
-                {% else %}
-                <td>{{ subject.status }}</td>
-                {% endif %}
-            </tr>
-            {% endfor %}
-        </tbody>
-
-    </table>
+<div class="quotaposition">
+    <p1>ขอโควต้ารายวิชา</p1>
+    <div class="quotasearch-container">
+        <form action="#" method="post">
+            {% csrf_token %}
+            <div class="input-group">
+                <input type="text" name="q">
+                <button type="submit">search</button>
+            </div>
+        </form>
+    </div>
+    <p2>ข้อมูลผู้ขอโควต้า : </p2>
+    {% if subject_list %}
+    <div class="quotacontainer">
+        <table>
+            <thead>
+                <tr>
+                    <th>รหัสวิชา</th>
+                    <th>ชื่อวิชา</th>
+                    <th>ภาคการศึกษา</th>
+                    <th>ปีการศึกษา</th>
+                    <th>จำนวนที่นั่ง</th>
+                    <th>สถานะ</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for subject in subject_list %}
+                <tr>
+                    <td>{{ subject.code }}</td>
+                    <td>{{ subject.name }}</td>
+                    <td>{{ subject.semester }}</td>
+                    <td>{{ subject.year }}</td>
+                    <td>{{ subject.seats }}</td>
+                    {% if subject.status == "AVAILABLE" %}
+                    <td>
+                        <form action="{% url 'quota' %}" method="POST">
+                            {% csrf_token %}
+                            <div class="enroll-container">
+                                <button type="submit" class="btn btn-primary">Enroll</button>
+                            </div>
+                        </form>
+                    </td>
+                    {% else %}
+                    <td>{{ subject.status }}</td>
+                    {% endif %}
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+    {% endif %}
 </div>
 {% endblock %}
