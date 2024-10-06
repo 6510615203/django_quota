@@ -36,10 +36,15 @@
     <div class="square-left">
         <div class="background-div"></div>
         <div class="container">
-            <a href="/search" class="custom-button">ค้นหารายวิชา</a></li>
-            <a href="/quota" class="custom-button">ขอโควต้า</a></li>
-            <a href="/result" class="custom-button">ผลการขอโควต้า</a></li>
-            <a href="/" class="custom-button">Logout</a></li>
+            <a href="/search" class="custom-button"><img src="{% static '/css/search.png' %}" class="icon"
+                    alt="Search Icon">ค้นหารายวิชา</a></li>
+            <a href="/quota" class="custom-button"><img src="{% static '/css/register-icon-1024x1024-hi8iv4nr.png' %}"
+                    class="icon" alt="Search Icon">ขอโควต้า</a></li>
+            <a href="/result" class="custom-button"><img src="{% static '/css/registration-3.png' %}" class="icon"
+                    alt="Search Icon">ผลการขอโควต้า</a></li>
+            <a href="/" class="custom-button"><img src="{% static '/css/logout-1-icon-2048x2048-dsthju9g.png' %}"
+                    class="icon" alt="Search Icon">Logout</a>
+            </li>
         </div>
     </div>
     {% block content %}
