@@ -1,11 +1,11 @@
 {% extends "base.html" %}
 {% load static %}
 {% block title %}
-<title>ค้นหารายวิชา</title>
+    <title>ค้นหารายวิชา</title>
 {% endblock %}
 
 {% block style %}
-<link rel="stylesheet" type="text/css" href="{% static 'css/searchstyle.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/searchstyle.css' %}">
 {% endblock %}
 
 {% block content %}
@@ -20,7 +20,7 @@
             </div>
         </form>
     </div>
-    <p2>ข้อมูลผู้ขอโควต้า : </p2>
+    <p2>ข้อมูลผู้ขอโควต้า : {{ user }} {{ name }} {{ surname }} ชั้นปีที่ {{ year }}</p2>
     {% if subject_list %}
     <div class="searchcontainer">
         <table>
