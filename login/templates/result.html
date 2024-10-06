@@ -11,7 +11,7 @@
 {% block content %}
 <div class="resultposition">
     <p1>ผลการขอโควต้า</p1>
-    <p2>ข้อมูลผู้ขอโควต้า : </p2>
+    <p2>ข้อมูลผู้ขอโควต้า : {{ user }} {{ name }} {{ surname }} ชั้นปีที่ {{ year }}</p2>
     {% if subject_list %}
     <div class="resultcontainer">
         <table>

@@ -37,15 +37,39 @@ def quota(request):
         subject.seats = subject.seats - 1
         subject.save()
         enrollment.save()
-
-    return render(request,"quota.html",{"subject_list":subject_list})
+    student = get_object_or_404(Student, user=request.user)
+    context = {
+        "subject_list":subject_list,
+        "user":request.user,
+        "name":student.name,
+        "surname":student.surname,
+        "year":student.year
+    }
+    return render(request,"quota.html", context)
 
 def search(request):
     subject_list = Subject.objects.all()
     query = request.POST.get("q")
     if query:
         subject_list = subject_list.filter(code__icontains=query) | subject_list.filter(name__icontains=query)
-    return render(request,"search.html",{"subject_list":subject_list})
+    student = get_object_or_404(Student, user=request.user)
+    context = {
+        "subject_list":subject_list,
+        "user":request.user,
+        "name":student.name,
+        "surname":student.surname,
+        "year":student.year
+    }
+    return render(request,"search.html", context)
 
 def result(request):
-    return render(request,"result.html")
+    subject_list = Subject.objects.all()
+    student = get_object_or_404(Student, user=request.user)
+    context = {
+        "subject_list":subject_list,
+        "user":request.user,
+        "name":student.name,
+        "surname":student.surname,
+        "year":student.year
+    }
+    return render(request,"result.html", context)
