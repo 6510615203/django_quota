@@ -3,14 +3,40 @@ body {
 }
 
 .search-container {
-    background-color: white;
-    /*padding: 10px;*/
-    border-radius: 8px;
+    background-color: #FFDDB2;
+    padding: 10px;
+    border-radius: 30px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    width: 20%;
-    height: 10%;
-    margin-top: 100px;
-    /*text-align: center;*/
+    width: 500px;
+    height: 30px;
+    margin-top: 20px;
+    margin-bottom: 30px;
+    text-align: left;
+    white-space: nowrap;
+}
+
+.search-container input[type="text"] {
+    width: 420px;
+    padding: 5px;
+    border: 2px solid #FFDDB2;
+    border-radius: 30px;
+    outline: none;
+    font-size: 15px;
+}
+
+.search-container button {
+    padding: 10px;
+    background-color: #FFDDB2;
+    color: black;
+    border: none;
+    border-radius: 30px;
+    cursor: pointer;
+    font-size: 12px;
+    text-align: center;
+}
+
+.search-container button:hover {
+    background-color: #FFCA8A;
 }
 
 table {
@@ -21,7 +47,8 @@ table {
     width: 100%;
     text-align: center;
     font-size: 15px;
-
+    margin-top: 30px;
+    margin-left: 0px;
 }
 
 table tr th,
@@ -60,4 +87,25 @@ table tr:last-child td:first-child {
 /* bottom-right border-radius */
 table tr:last-child td:last-child {
     border-bottom-right-radius: 6px;
+}
+
+.searchposition {
+    display: flex;
+    flex-direction: column;
+    gap: 0px;
+    position: absolute;
+    left: 200px;
+    margin-top: 120px;
+}
+
+p1 {
+    font-family: "Kanit", sans-serif;
+    font-size: 30;
+    font-weight: 500;
+}
+
+p2 {
+    font-family: "Kanit", sans-serif;
+    font-size: 20;
+    font-weight:normal;
 }

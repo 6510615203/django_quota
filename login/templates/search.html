@@ -9,45 +9,47 @@
 {% endblock %}
 
 {% block content %}
-<div class="search-container">
-
-    <form action="#" method="post">
-        {% csrf_token %}
-        <div class="input-group">
-            <input type="text" name="q">
-            <button type="submit">search</button>
-        </div>
-    </form>
+<div class="searchposition">
+    <p1>ค้นหารายวิชา</p1>
+    <div class="search-container">
+        <form action="#" method="post">
+            {% csrf_token %}
+            <div class="input-group">
+                <input type="text" name="q">
+                <button type="submit">search</button>
+            </div>
+        </form>
+    </div>
+    <p2>ข้อมูลผู้ขอโควต้า : </p2>
+    {% if subject_list %}
+    <div class="searchcontainer">
+        <table>
+            <thead>
+                <tr>
+                    <th>รหัสวิชา</th>
+                    <th>ชื่อวิชา</th>
+                    <th>ภาคการศึกษา</th>
+                    <th>ปีการศึกษา</th>
+                    <th>จำนวนที่นั่ง</th>
+                    <th>สถานะ</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for subject in subject_list %}
+                <tr>
+                    <td>{{subject.code}}</td>
+                    <td>{{subject.name}}</td>
+                    <td>{{subject.semester}}</td>
+                    <td>{{subject.year}}</td>
+                    <td>{{subject.seats}}</td>
+                    <td>{{subject.status}}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+    
+        </table>
+    </div>
+    {% endif %}
 </div>
 
-{% if subject_list %}
-<div class="searchcontainer">
-    <table>
-        <thead>
-            <tr>
-                <th>รหัสวิชา</th>
-                <th>ชื่อวิชา</th>
-                <th>ภาคการศึกษา</th>
-                <th>ปีการศึกษา</th>
-                <th>จำนวนที่นั่ง</th>
-                <th>สถานะ</th>
-            </tr>
-        </thead>
-        <tbody>
-            {% for subject in subject_list %}
-            <tr>
-                <td>{{subject.code}}</td>
-                <td>{{subject.name}}</td>
-                <td>{{subject.semester}}</td>
-                <td>{{subject.year}}</td>
-                <td>{{subject.seats}}</td>
-                <td>{{subject.status}}</td>
-            </tr>
-            {% endfor %}
-        </tbody>
-
-    </table>
-</div>
-
-{% endif %}
 {% endblock %}
