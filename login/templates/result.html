@@ -9,9 +9,47 @@
 {% endblock %}
 
 {% block content %}
-<div class="resultcontainer">
-    <div>
-        <h4>ผลการขอโควต้า</h4>
+<div class="resultposition">
+    <p1>ผลการขอโควต้า</p1>
+    <p2>ข้อมูลผู้ขอโควต้า : </p2>
+    {% if subject_list %}
+    <div class="resultcontainer">
+        <table>
+            <thead>
+                <tr>
+                    <th>รหัสวิชา</th>
+                    <th>ชื่อวิชา</th>
+                    <th>ภาคการศึกษา</th>
+                    <th>ปีการศึกษา</th>
+                    <th>จำนวนที่นั่ง</th>
+                    <th>สถานะ</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for subject in subject_list %}
+                <tr>
+                    <td>{{ subject.code }}</td>
+                    <td>{{ subject.name }}</td>
+                    <td>{{ subject.semester }}</td>
+                    <td>{{ subject.year }}</td>
+                    <td>{{ subject.seats }}</td>
+                    {% if subject.status == "AVAILABLE" %}
+                    <td>
+                        <form action="{% url 'result' %}" method="POST">
+                            {% csrf_token %}
+                            <div class="withdraw-container">
+                                <button type="submit" class="btn btn-primary">withdraw</button>
+                            </div>
+                        </form>
+                    </td>
+                    {% else %}
+                    <td>{{ subject.status }}</td>
+                    {% endif %}
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
     </div>
+    {% endif %}
 </div>
 {% endblock %}

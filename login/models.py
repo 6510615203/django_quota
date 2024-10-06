@@ -9,6 +9,7 @@ class Student(models.Model):
     surname = models.CharField(max_length=64)
     year = models.IntegerField()
     student_id = models.IntegerField()
+    enrolled = models.BooleanField(default=False)
 
     def __str__(self):
         return f"{self.student_id} : {self.name} {self.surname}"
