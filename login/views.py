@@ -32,6 +32,9 @@ def quota(request):
 
 def search(request):
     subject_list = Subject.objects.all()
+    query = request.POST.get("q")
+    if query:
+        subject_list = subject_list.filter(code__icontains=query) | subject_list.filter(name__icontains=query)
     return render(request,"search.html",{"subject_list":subject_list})
 
 def result(request):
