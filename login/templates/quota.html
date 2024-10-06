@@ -24,12 +24,21 @@
         <tbody>
             {% for subject in subject_list %}
             <tr>
-                <td>{{subject.code}}</td>
-                <td>{{subject.name}}</td>
-                <td>{{subject.semester}}</td>
-                <td>{{subject.year}}</td>
-                <td>{{subject.seats}}</td>
-                <td>{{subject.status}}</td>
+                <td>{{ subject.code }}</td>
+                <td>{{ subject.name }}</td>
+                <td>{{ subject.semester }}</td>
+                <td>{{ subject.year }}</td>
+                <td>{{ subject.seats }}</td>
+                {% if subject.status == "AVAILABLE" %}
+                <td>
+                    <form action="{% url 'quota' %}" method="POST">
+                        {% csrf_token %}
+                        <button type="submit" class="btn btn-primary">{{ subject.status }}</button>
+                    </form>
+                </td>
+                {% else %}
+                <td>{{ subject.status }}</td>
+                {% endif %}
             </tr>
             {% endfor %}
         </tbody>
