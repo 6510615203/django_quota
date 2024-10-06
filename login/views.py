@@ -28,6 +28,8 @@ def index(request):
 
 def quota(request):
     subject_list = Subject.objects.all()
+    #if request.method == "POST":
+
     return render(request,"quota.html",{"subject_list":subject_list})
 
 def search(request):

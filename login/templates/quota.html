@@ -33,7 +33,9 @@
                 <td>
                     <form action="{% url 'quota' %}" method="POST">
                         {% csrf_token %}
-                        <button type="submit" class="btn btn-primary">{{ subject.status }}</button>
+                        <div class="input-group">
+                            <button type="submit" class="btn btn-primary">{{ subject.status }}</button>
+                        </div>
                     </form>
                 </td>
                 {% else %}
