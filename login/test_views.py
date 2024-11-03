@@ -68,4 +68,3 @@ class ViewTests(TestCase):
         enrollment = Enrollment.objects.filter(student=self.student, subject=self.subject).first()
         self.assertIsNone(enrollment)
         self.assertEqual(self.subject.seats, 10)  # One seat should be freed
-
