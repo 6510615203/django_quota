@@ -2,54 +2,32 @@ from django.test import TestCase
 from django.contrib.auth.models import User
 from .models import Student, Subject, Enrollment
 
-class StudentTestCase(TestCase):
-    def setUp(self):
-        # creat user account
-        user1 = User.objects.create(username="6510615096", password="usertest1")
-        user2 = User.objects.create(username="6510615203", password="usertest2")
-        # creat instance student
-        student1 = Student.objects.create(user=user1, name="Nutpupicha", surname="Arungornpasuruk", year="3", student_id="6510615096")
-        student2 = Student.objects.create(user=user2, name="Ponthipa", surname="Teerapravet", year="3", student_id="6510615203")
-        self.student = Student.objects.create(student1,student2)
-
-    def test_student_creation(self):
-        self.assertEqual(self.student.name, "Nutpupicha","Ponthipa")
-        self.assertEqual(self.student.surname, "Arungornpasuruk","Teerapravet")
-        self.assertEqual(self.student.year, "3","3")
-        self.assertEqual(self.student.student_id, "6510615096","6510615203")
-        #self.assertEqual(str(self.student), "6510615096 : Nutpupicha Arungornpasuruk", "6510615203 : Ponthipa Teerapravet")
-
-class SubjectTestCase(TestCase):
-    def setUp(self):
-        # creat subject
-        self.subject = Subject.objects.create(code="CN101", name="Introduction to Computer Programming", semester=1, year=2567, seats=50, status="AVAILABLE")
-
-    def test_subject_creation(self):
-        self.assertEqual(self.subject.code, "CN101")
-        self.assertEqual(self.subject.name, "Introduction to Computer Programming")
-        self.assertEqual(self.subject.semester, 1)
-        self.assertEqual(self.subject.year, 2567)
-        self.assertEqual(self.subject.seats, 50)
-        self.assertEqual(self.subject.status, "AVAILABLE")
-        #self.assertEqual(str(self.subject), "CN101 Introduction to Computer Programming (1/2567)")
 
 class EnrollmentTestCase(TestCase):
+
     def setUp(self):
-        # creat user, student, subject
-        # creat user account
-        user1 = User.objects.create(username="6510615096", password="usertest1")
-        user2 = User.objects.create(username="6510615203", password="usertest2")
-        # creat instance student
-        student1 = Student.objects.create(user=user1, name="Nutpupicha", surname="Arungornpasuruk", year="3", student_id="6510615096")
-        student2 = Student.objects.create(user=user2, name="Ponthipa", surname="Teerapravet", year="3", student_id="6510615203")
-        self.student = Student.objects.create(student1,student2)
-        # creat subject
-        self.subject = Subject.objects.create(code="CN101", name="Introduction to Computer Programming", semester=1, year=2567, seats=50, status="AVAILABLE")
+        self.user = User.objects.create_user(username="6510681000", password="passuser01")
+        self.student = Student.objects.create(user=self.user, name="Somchai", surname="Rakthai", year=2, student_id=6510681000)
+        self.subject = Subject.objects.create(code="CN331", name="Software Engineering", semester=1, year=2024, seats=30, status="AVAILABLE")
 
-        # creat enrollment instance
-        self.enrollment = Enrollment.objects.create(student=self.student, subject=self.subject)
+    def test_student(self):
+        self.assertEqual(self.student.name, "Somchai")
+        self.assertEqual(self.student.surname, "Rakthai")
+        self.assertEqual(self.student.year, 2)
+        self.assertEqual(self.student.student_id, 6510681000)
+        self.assertEqual(str(self.student), "6510681000 : Somchai Rakthai")
 
-    def test_enrollment__creation(self):
-        self.assertEqual(self.enrollment.student, self.student)
-        self.assertEqual(self.enrollment.subject, self.subject)
-        #self.assertEqual(str(self.enrollment), f"{self.student} ขอโควต้าวิชา {self.subject}")
+    def test_subject(self):
+        self.assertEqual(self.subject.code, "CN331")
+        self.assertEqual(self.subject.name, "Software Engineering")
+        self.assertEqual(self.subject.semester, 1)
+        self.assertEqual(self.subject.year, 2024)
+        self.assertEqual(self.subject.seats, 30)
+        self.assertEqual(self.subject.status, "AVAILABLE")
+        self.assertEqual(str(self.subject), "CN331 Software Engineering (1/2024)")
+
+    def test_enrollment(self):
+        enrollment = Enrollment.objects.create(student=self.student, subject=self.subject)
+        self.assertEqual(enrollment.student, self.student)
+        self.assertEqual(enrollment.subject, self.subject)
+        self.assertEqual(str(enrollment), "6510681000 : Somchai Rakthai ขอโควต้าวิชา CN331 Software Engineering (1/2024)")

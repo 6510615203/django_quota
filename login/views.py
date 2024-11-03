@@ -83,10 +83,11 @@ def result(request):
         code = request.POST.get("code")
         if code :
             subject = get_object_or_404(Subject, code=code)
-            student = get_object_or_404(Student, user=request.user)
-            enrollment = Enrollment(student=student, subject=subject)
-            subject.seats = subject.seats + 1
-            subject.status = "AVAILABLE"
-            subject.save()
-            enrollment.save()
+        student = get_object_or_404(Student, user=request.user)
+        enrollment = get_object_or_404(Enrollment, student=student, subject=subject)
+        enrollment.delete()
+        subject.seats = subject.seats + 1
+        subject.status = "AVAILABLE"
+        subject.save()
+
     return render(request,"result.html", context)
